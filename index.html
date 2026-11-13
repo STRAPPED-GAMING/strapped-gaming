@@ -1,22 +1,94 @@
+
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Click Rush</title>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STRAPPED GAMING - Play Free Online Games</title>
 <style>
-  html,body{margin:0;height:100%;background:#0b0720;color:#f3edff;font-family:system-ui,sans-serif;text-align:center;user-select:none}
-  #hud{padding:12px;font-size:1.1rem}#area{position:relative;height:calc(100% - 100px);margin:0 12px;border:1px solid #2b1b52;border-radius:12px;overflow:hidden;touch-action:manipulation}
-  #t{position:absolute;width:64px;height:64px;border-radius:50%;border:0;cursor:pointer;background:radial-gradient(circle,#fff,#f59e0b 40%,#ec4899);box-shadow:0 0 24px #ec4899}
-  #msg{position:absolute;inset:0;display:grid;place-content:center;background:rgba(11,7,32,.9);gap:10px}
-  button.go{padding:12px 26px;border:0;border-radius:10px;font:700 1rem system-ui;background:linear-gradient(135deg,#b44dff,#22e5ff);cursor:pointer}
-</style></head><body>
-<div id="hud">Time: <b id="time">15</b> &nbsp; Score: <b id="s">0</b></div>
-<div id="area"><button id="t" aria-label="Target" hidden></button>
-  <div id="msg"><div><h2>Click Rush</h2><p>Tap the target as many times as you can in 15 seconds.</p><button class="go" id="go">Start</button></div></div></div>
-<script>
-  // Template for your own games: report scores to the STRAPPED page like this.
-  const $=id=>document.getElementById(id),t=$("t"),area=$("area");let s=0,left=15,iv;
-  function report(over){try{parent.postMessage({sg:"score",score:s,over:!!over},"*")}catch(e){}}
-  function move(){t.style.left=Math.random()*(area.clientWidth-64)+"px";t.style.top=Math.random()*(area.clientHeight-64)+"px"}
-  function start(){s=0;left=15;$("s").textContent=0;$("time").textContent=left;$("msg").hidden=true;t.hidden=false;move();report(false);
-    iv=setInterval(()=>{$("time").textContent=--left;if(left<=0){clearInterval(iv);t.hidden=true;$("msg").hidden=false;$("msg").querySelector("h2").textContent="Time's up! Score: "+s;$("go").textContent="Play again";report(true)}},1000)}
-  t.onclick=()=>{s++;$("s").textContent=s;move();report(false)};$("go").onclick=start;
-</script></body></html>
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#09051b;
+ color:white;
+}
+header{
+ padding:22px 7%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ background:#130b2b;
+ border-bottom:1px solid #30205a;
+}
+.logo{font-size:25px;font-weight:900;color:#19d9ff}
+.logo span{color:#bd42ff}
+nav a{color:white;text-decoration:none;margin-left:20px}
+.hero{
+ text-align:center;
+ padding:75px 20px 55px;
+ background:linear-gradient(135deg,#190b3c,#071b35);
+}
+.hero h1{font-size:clamp(34px,7vw,60px);margin:0 0 15px}
+.hero h1 span{color:#19d9ff}
+.hero p{color:#c9c3e5;font-size:17px}
+.games{padding:35px 7%}
+.games h2{font-size:30px}
+.card{
+ max-width:340px;
+ background:#17102f;
+ border:1px solid #493078;
+ border-radius:18px;
+ overflow:hidden;
+ padding:22px;
+}
+.game-icon{font-size:65px;text-align:center;padding:15px}
+.card h3{font-size:24px;margin:10px 0}
+.card p{color:#c9c3e5}
+.play{
+ display:block;
+ text-align:center;
+ padding:14px;
+ margin-top:18px;
+ border-radius:12px;
+ background:linear-gradient(90deg,#bd42ff,#16d9ff);
+ color:#09051b;
+ font-weight:bold;
+ text-decoration:none;
+}
+.play:hover{transform:scale(1.03)}
+footer{
+ text-align:center;
+ padding:25px;
+ color:#aaa;
+ border-top:1px solid #30205a;
+ margin-top:50px;
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="logo">STRAPPED <span>GAMING</span></div>
+ <nav><a href="#home">Home</a><a href="#games">Games</a></nav>
+</header>
+
+<section class="hero" id="home">
+ <h1>WELCOME TO <span>STRAPPED GAMING</span></h1>
+ <p>Play exciting free online games anytime, anywhere!</p>
+</section>
+
+<section class="games" id="games">
+ <h2>🎮 Our Games</h2>
+ <div class="card">
+  <div class="game-icon">🎯</div>
+  <h3>Click Rush</h3>
+  <p>Tap the target as many times as you can in 15 seconds. Beat your high score!</p>
+  <a class="play" href="my-games/click-rush/">PLAY NOW</a>
+ </div>
+</section>
+
+<footer>
+ © 2026 STRAPPED GAMING. All Rights Reserved.
+</footer>
+</body>
+</html>
