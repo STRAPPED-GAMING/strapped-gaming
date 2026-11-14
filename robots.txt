@@ -1,0 +1,5 @@
+
+User-agent: *
+Allow: /
+
+Sitemap: https://strapped-gaming.github.io/strapped-gaming/sitemap.xml
